@@ -19,14 +19,15 @@ mongoose.connection.on('error',(err)=>{
 
 //express app
 const app = express()
-app.use(express.json());
+app.use(express.json())
 
 //require
 require('./models/user')
+require('./models/post')
 
 //appuse
-app.use(express.json())
-app.use(require('./routes/user'))
+app.use(require('./routes/User'))
+app.use(require('./routes/Post'))
 
 //port
 const PORT = process.env.PORT || 1100;
