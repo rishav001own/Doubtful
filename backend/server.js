@@ -26,6 +26,7 @@ app.use(cors())
 //require
 require('./models/user')
 require('./models/post')
+require('./middleware/requireLogin')
 
 //appuse
 app.use(require('./routes/User'))

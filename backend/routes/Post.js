@@ -2,9 +2,10 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const Post =  mongoose.model("Post")
+const requireLogin  = require('../middleware/requireLogin')
 
 
-router.get('/allpost',(req,res)=>{
+router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
@@ -20,7 +21,7 @@ router.get('/allpost',(req,res)=>{
 
 
 
-router.post('/createpost',(req,res)=>{
+router.post('/createpost',requireLogin,(req,res)=>{
     const {title,body} = req.body 
     if(!title || !body){
       return  res.status(422).json({error:"Plase add all the fields"})
@@ -38,6 +39,37 @@ router.post('/createpost',(req,res)=>{
     })
 })
 
+router.get('/mypost',requireLogin,(req,res)=>{
+    Post.find({postedBy:req.user._id})
+    .populate("PostedBy","_id name")
+    .then(mypost=>{
+        res.json({mypost})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+router.put('/comment',requireLogin,(req,res)=>{
+    const comment = {
+        text:req.body.text,
+        postedBy:req.user._id
+    }
+    Post.findByIdAndUpdate(req.body.postId,{
+        $push:{comments:comment}
+    },{
+        new:true
+    })
+    .populate("comments.postedBy","_id name")
+    .populate("postedBy","_id name")
+    .exec((err,result)=>{
+        if(err){
+            return res.status(422).json({error:err})
+        }else{
+            res.json(result)
+        }
+    })
+})
 
 
 module.exports = router

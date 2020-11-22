@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Axios from "axios";
+import "./loginPage.css";
 
 const loginPage = () => {
     const submit=(event)=>{
@@ -17,7 +18,7 @@ const loginPage = () => {
     }
     return (
         <div className="form_login">
-            <Form onSubmit={submit}>
+            <Form onSubmit={submit}><h1>Login</h1>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -34,7 +35,7 @@ const loginPage = () => {
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Loginng In
                 </Button>
             </Form>
         </div>
