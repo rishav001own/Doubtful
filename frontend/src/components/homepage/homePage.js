@@ -10,7 +10,7 @@ class homePage extends React.Component {
     }
     render(){
         return (
-            <div>
+            <div className="container">
                 <Card className="text-center">
                     <Card.Header>Name</Card.Header>
                     <Card.Body>

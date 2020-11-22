@@ -22,6 +22,11 @@ const SignupPage = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
+                <Form.Group controlId="link">
+                    <Form.Text>
+                        Already Have Account <a href="/signup">Click here!!!</a> 
+                    </Form.Text>
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     Create Account
                 </Button>

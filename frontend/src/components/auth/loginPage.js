@@ -31,8 +31,10 @@ const loginPage = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                <Form.Group controlId="link">
+                    <Form.Text>
+                        Create New Account <a href="/signup">Click here!!!</a> 
+                    </Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Loginng In
