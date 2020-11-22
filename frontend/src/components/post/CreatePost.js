@@ -6,7 +6,7 @@ const CreatePost = () => {
     return (
         <div>
             <Card className="text-center">
-                <Card.Header>Featured</Card.Header>
+                <Card.Header>Create Post</Card.Header>
                 <Card.Body>
                     <Card.Title>Special title treatment</Card.Title>
                     <Card.Text>

@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require('mongoose');
+var cors = require('cors')
 
 
 //mongo
@@ -20,6 +21,7 @@ mongoose.connection.on('error',(err)=>{
 //express app
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 //require
 require('./models/user')
