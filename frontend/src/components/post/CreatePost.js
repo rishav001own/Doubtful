@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const homePage = () => {
+const CreatePost = () => {
     return (
         <div>
             <Card className="text-center">
@@ -20,4 +20,4 @@ const homePage = () => {
     );
 };
 
-export default homePage;
+export default CreatePost;
